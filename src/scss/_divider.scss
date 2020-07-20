@@ -1,0 +1,35 @@
+@import "./mixins";
+// Divider section
+.divider {
+  position: relative;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  height: 1px;
+}
+.div-transparent:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 5%;
+  right: 5%;
+  width: 90%;
+  height: 1px;
+  @include divider-tx($light-theme: true);
+  .appRoot.dark & {
+    @include divider-tx($light-theme: false);
+  }
+}
+.div-dot:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -9px;
+  left: calc(50% - 9px);
+  width: 18px;
+  height: 18px;
+  @include divider-colors($light-theme: false);
+  .appRoot.dark & {
+    @include divider-colors($light-theme: true);
+  }
+  border-radius: 50%;
+}

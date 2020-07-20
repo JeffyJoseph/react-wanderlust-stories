@@ -1,0 +1,48 @@
+@import "./variables";
+@import "./mixins";
+.accordion_wrapper {
+  margin: 15px auto;
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  &.open {
+    .accordion_header {
+      &:before {
+        transform: rotate(-90deg);
+      }
+    }
+  }
+
+  .accordion_header {
+    display: block;
+    font-size: 1rem;
+    font-weight: 500;
+    padding: 0.9rem 1.8rem;
+    width: 100%;
+
+    @include city-color($light-theme: false);
+    .appRoot.dark & {
+      @include city-color($light-theme: true);
+    }
+    position: relative;
+
+    box-sizing: border-box;
+    outline: none;
+
+    border: none;
+    &:before {
+      content: "";
+      @include accordion-border-color($light-theme: true);
+      .appRoot.dark & {
+        @include accordion-border-color($light-theme: false);
+      }
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      position: absolute;
+      top: 25px;
+      right: 30px;
+      transition: 0.2s linear 0s;
+    }
+  }
+  .accordion_content {
+    padding: 1.8rem;
+  }
+}

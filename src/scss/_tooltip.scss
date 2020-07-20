@@ -1,0 +1,23 @@
+@import "./mixins";
+.tooltip_wrapper {
+  position: relative;
+  .tooltip {
+    display: none;
+    @media screen and (min-width: 600px) {
+      display: block;
+    }
+    position: absolute;
+    top: -40px;
+    left: -5px;
+    font-weight: bold;
+    border-radius: 20px;
+    width: 50px;
+    text-align: center;
+    @include city-color($light-theme: false);
+    .appRoot.dark & {
+      @include city-color($light-theme: true);
+    }
+    padding: 4px;
+    font-size: 13px;
+  }
+}

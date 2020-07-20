@@ -1,0 +1,35 @@
+@import "./mixins";
+.button_group {
+  margin: 20px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  button {
+    border-radius: 50px;
+    border: none;
+    padding: 5px;
+    margin: 0 5px;
+    width: 30px;
+    height: 30px;
+    outline: none;
+    transition: all 200ms;
+    cursor: pointer;
+    &:hover {
+      transform: rotate(720deg);
+    }
+    @include city-color($light-theme: false);
+    .appRoot.dark & {
+      @include city-color($light-theme: true);
+    }
+  }
+  .appRoot.dark & .tooltip_btn {
+    &:hover {
+      background-color: #111 !important;
+    }
+  }
+  .appRoot.light & .tooltip_btn {
+    &:hover {
+      background-color: #ccc !important;
+    }
+  }
+}

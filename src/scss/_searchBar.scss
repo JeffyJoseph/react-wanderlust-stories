@@ -1,0 +1,30 @@
+@import "./mixins";
+.search_bar {
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  .search_icon {
+    position: absolute;
+    bottom: 12px;
+    left: 10px;
+    @include blockquote-color($light-theme: true);
+    .appRoot.dark & {
+      @include blockquote-color($light-theme: true);
+    }
+  }
+  label {
+    font-size: 14px;
+    text-align: left;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  input {
+    padding: 10px;
+    border-radius: 20px;
+    outline: none;
+    padding-left: 30px;
+  }
+  margin: 10px 0 20px;
+}

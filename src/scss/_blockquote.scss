@@ -1,0 +1,33 @@
+// BlockQuote section
+@import "./mixins";
+@import "./variables";
+.quotes {
+  width: 100%;
+  @media (min-width: 600px) {
+    // width: 30vw;
+  }
+  margin: 30px auto;
+  position: relative;
+  padding-left: 1em;
+  @include blockquote-border($light-theme: true);
+  .appRoot.dark & {
+    @include blockquote-border($light-theme: false);
+  }
+  font-family: $baseFont;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 100;
+  &:before,
+  &:after {
+    content: "\201C";
+    font-family: "Sanchez";
+    @include blockquote-color($light-theme: true);
+    .appRoot.dark & {
+      @include blockquote-color($light-theme: false);
+    }
+    margin: 0 10px;
+  }
+  &:after {
+    content: "\201D";
+  }
+}

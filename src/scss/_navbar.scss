@@ -1,0 +1,82 @@
+@import "./mixins";
+
+.navbar {
+  margin-bottom: 20px;
+  ul {
+    display: inline-block;
+    padding: 0em 0.5em;
+    @media screen and (min-width: 360px) {
+      padding: 0em 1em;
+    }
+    @media screen and (min-width: 410px) {
+      padding: 0em 1.5em;
+    }
+    border-radius: 40px;
+    @include theme-colors($light-theme: true);
+    .appRoot.dark & {
+      @include theme-colors($light-theme: false);
+    }
+    li {
+      display: inline-block;
+
+      &:last-child {
+        padding-right: 0;
+      }
+      &.active {
+        a {
+          color: inherit;
+        }
+      }
+      a,
+      button {
+        display: block;
+        padding: 1em 1em;
+        letter-spacing: 1px;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-weight: 200;
+        font-size: 1em;
+        outline: 0;
+        color: inherit;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        .fa-2x {
+          font-size: 20px !important;
+        }
+        .nav_text {
+          display: none;
+          @media (min-width: 600px) {
+            display: block;
+          }
+        }
+        .nav_icons {
+          display: block;
+          @media (min-width: 600px) {
+            display: none;
+          }
+        }
+        &.active {
+          @include border-bottom-color($light-theme: false);
+          .appRoot.dark & {
+            @include border-bottom-color($light-theme: true);
+          }
+        }
+      }
+      button {
+        position: fixed;
+        top: 10px;
+        right: 10px;
+        border-radius: 40px;
+        padding: 10px;
+        width: 20px;
+        height: 20px;
+        z-index: 100;
+        @include theme-colors($light-theme: true);
+        .appRoot.dark & {
+          @include theme-colors($light-theme: false);
+        }
+      }
+    }
+  }
+}

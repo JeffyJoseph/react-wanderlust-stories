@@ -1,0 +1,30 @@
+@import "./variables";
+@import "./mixins";
+
+.btn {
+  padding: 5px 10px;
+  margin: 10px 5px;
+  font-family: $baseFont;
+  font-size: 16;
+  outline: none;
+  text-decoration: none;
+
+  @include city-color($light-theme: false);
+  @include button-border-color($light-theme: true);
+  .appRoot.dark & {
+    @include city-color($light-theme: true);
+    @include button-border-color($light-theme: false);
+  }
+
+  cursor: pointer;
+  width: max-content;
+  transition: 0.25s ease;
+  text-transform: uppercase;
+
+  &:hover {
+    @include button-border-hover-color($light-theme: true);
+    .appRoot.dark & {
+      @include button-border-hover-color($light-theme: false);
+    }
+  }
+}

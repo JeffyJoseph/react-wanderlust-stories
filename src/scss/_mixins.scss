@@ -1,0 +1,124 @@
+@import "./variables";
+
+@mixin theme-colors($light-theme: true) {
+  @if $light-theme {
+    background-color: $primaryBgColor;
+    color: $primaryFgColor;
+  } @else {
+    background-color: $primaryFgColor;
+    color: $primaryBgColor;
+  }
+}
+
+@mixin fg-bg-colors($light-theme: true) {
+  @if $light-theme {
+    background-color: $primaryBgColor;
+    color: $primaryFgColor;
+  } @else {
+    background-color: $primaryFgColor;
+    color: $primaryBgColor;
+  }
+}
+
+@mixin div-transparent-light() {
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    rgb(48, 49, 51),
+    transparent
+  );
+}
+@mixin div-transparent-dark() {
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    rgb(229, 229, 229),
+    transparent
+  );
+}
+@mixin divider-tx($light-theme: true) {
+  @if $light-theme {
+    @include div-transparent-light();
+  } @else {
+    @include div-transparent-dark();
+  }
+}
+
+@mixin divider-colors($light-theme: true) {
+  @if $light-theme {
+    background-color: $primaryFgColor;
+  } @else {
+    background-color: $primaryBgColor;
+  }
+}
+
+@mixin blockquote-border($light-theme: true) {
+  @if $light-theme {
+    border-left: 0.2em solid lighten(#000, 40%);
+  } @else {
+    border-left: 0.2em solid $primaryFgColor;
+  }
+}
+
+@mixin blockquote-color($light-theme: true) {
+  @if $light-theme {
+    color: $primaryBgColor;
+  } @else {
+    color: $primaryFgColor;
+  }
+}
+
+@mixin city-color($light-theme: true) {
+  @if $light-theme {
+    background-color: $primaryFgColor;
+    color: $primaryBgColor;
+  } @else {
+    background-color: $primaryBgColor;
+    color: $primaryFgColor;
+  }
+}
+
+@mixin card-color($light-theme: true) {
+  @if $light-theme {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: $primaryFgColor;
+  } @else {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: $primaryBgColor;
+    font-weight: bold;
+  }
+}
+
+@mixin accordion-border-color($light-theme: true) {
+  @if $light-theme {
+    border-top: 7px solid $primaryFgColor;
+  } @else {
+    border-top: 7px solid $primaryBgColor;
+  }
+}
+
+@mixin button-border-color($light-theme: true) {
+  @if $light-theme {
+    border: 2px solid $primaryBgColor;
+  } @else {
+    border: 2px solid $primaryFgColor;
+  }
+}
+
+@mixin border-bottom-color($light-theme: true) {
+  @if $light-theme {
+    border-bottom: 5px solid rgb(90, 154, 210);
+  } @else {
+    border-bottom: 5px solid rgb(223, 195, 135);
+  }
+}
+
+@mixin button-border-hover-color($light-theme: true) {
+  @if $light-theme {
+    color: $primaryBgColor;
+    background-color: transparent;
+  } @else {
+    color: $primaryFgColor;
+    background-color: transparent;
+  }
+}
